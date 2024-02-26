@@ -1,8 +1,11 @@
 # Auxiliary LaTeX files
 *.aux
+*.bbl
 *.blg
 *.gz
 *.log
+*.nav
 *.out
+*.snm
 *.tmp
 *.toc
