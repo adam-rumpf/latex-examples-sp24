@@ -113,6 +113,11 @@
 \end{frame}
 
 %========================================================================
+%========================================================================
+%========================================================================
+\section{Preamble}
+
+%========================================================================
 \begin{frame}{Outline}
 
 \begin{enumerate}
@@ -133,7 +138,7 @@
 \end{frame}
 
 %========================================================================
-\begin{frame}{Preamble}
+\begin{frame}{Goals}
 
 \begin{itemize}
 	\item Like any programming language, using \LaTeX\ is a skill that takes practice
@@ -143,7 +148,7 @@
 \end{frame}
 
 %========================================================================
-\begin{frame}{Preamble}
+\begin{frame}{Goals}
 
 \begin{itemize}
 	\item All I can do is to show you its basic format and a few features
@@ -184,7 +189,7 @@
 %========================================================================
 \begin{frame}{What is \LaTeX?}
 
-You can find today's example code at my \textit{LaTeX Examples} GitHub repo \href{https://github.com/adam-rumpf/latex-examples-sp24}{here}.
+You can find today's example code at my \textit{LaTeX Examples} GitHub repo \href{https://github.com/adam-rumpf/latex-examples-sp24}{\textcolor{blue}{\underline{here}}}.
 
 \vfill
 
@@ -192,7 +197,7 @@ You can find today's example code at my \textit{LaTeX Examples} GitHub repo \hre
 
 HTML: \texttt{<p>You can find today's example code at my <i>LaTeX Examples</i> GitHub repo <a~href="https://github.com/adam-rumpf/latex-examples-sp24">here</a>.</p>}
 
-\quad
+\vfill
 
 \LaTeX: \texttt{You can find today's example code at my \textbackslash textit\{LaTeX Examples\} GitHub repo \textbackslash href\{https://github.com/adam-rumpf/latex-examples-sp24\}\{here\}.}
 
@@ -257,7 +262,7 @@ HTML: \texttt{<p>You can find today's example code at my <i>LaTeX Examples</i> G
 
 \begin{itemize}
 	\item As an easier alternative, most students prefer to begin by using \href{https://www.overleaf.com/}{\textit{Overleaf.com}}
-	\item It is a free browser-based \LaTeX\ distribution that also offers limited collaboration
+	\item It is a free browser-based \LaTeX\ distribution that also allows limited team collaboration
 \end{itemize}
 
 \end{frame}
@@ -281,13 +286,17 @@ HTML: \texttt{<p>You can find today's example code at my <i>LaTeX Examples</i> G
 	
 	\quad
 	
-	{\tt \textbackslash pdfoutput=1
-	
+	{\tt
 	\textbackslash documentclass[11pt]\{article\}
 	
 	\textbackslash usepackage[margin=1.0in]\{geometry\}
 	
-	\textbackslash usepackage[numbers,sort\&compress]\{natbib\}}
+	\textbackslash usepackage[numbers,sort\&compress]\{natbib\}
+	
+	\textbackslash usepackage\{setspace\}
+	
+	\textbackslash setstretch\{1.5\}
+	}
 	
 	\quad
 	
@@ -351,7 +360,7 @@ HTML: \texttt{<p>You can find today's example code at my <i>LaTeX Examples</i> G
 \begin{frame}{Why is \LaTeX?}
 
 \begin{itemize}
-	\item For three, technical documents drafted in \LaTeX\ just look nicer and more professional
+	\item For three, technical documents drafted in \LaTeX\ just look nicer and more professional than those written using \textit{Word}
 	\item Drafting assignments using \LaTeX\ will produce work that you can be proud of
 	\item It will also impress your instructor and grader
 \end{itemize}
@@ -380,7 +389,7 @@ HTML: \texttt{<p>You can find today's example code at my <i>LaTeX Examples</i> G
 Tasks:
 \begin{enumerate}
 	\item Create a PDF with text
-	\item Adjust the margins to be 1"
+	\item Adjust the margins and spacing
 	\item Add a title, author, and date
 	\item Add section numbers and references
 	\item Add some equations and references
@@ -453,7 +462,7 @@ Tasks:
 \end{frame}
 
 %========================================================================
-\begin{frame}{\textit{Text} \textbf{Formatting}}
+\begin{frame}{\textit{Text} \underline{Formatting}}
 
 \begin{itemize}
 	\item \textit{Italic:} {\tt \textbackslash textit\{my text\}}
