@@ -1,2 +1,5 @@
-# latex-examples-sp24
-LaTeX example files for a Spring 2024 presentation.
+# LaTeX Examples
+
+![GitHub License](https://img.shields.io/github/license/adam-rumpf/latex-examples-sp24)
+
+Example files for an introductory LaTeX presentation from Spring 2024.

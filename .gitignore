@@ -1,0 +1,8 @@
+# Auxiliary LaTeX files
+*.aux
+*.blg
+*.gz
+*.log
+*.out
+*.tmp
+*.toc
