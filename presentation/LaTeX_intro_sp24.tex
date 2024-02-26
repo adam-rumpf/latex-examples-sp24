@@ -1,0 +1,717 @@
+%========================================================================
+% Preamble (General)
+%========================================================================
+
+\documentclass{beamer} % Beamer is the document class for slideshows
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathrsfs} % Common math symbols
+\usepackage{graphicx,float} % Figure inclusion and placement
+\usepackage[scaled=0.92]{helvet} % Font selection
+\usepackage{xcolor} % Color selection
+
+%========================================================================
+% Preamble (Beamer-Related)
+%========================================================================
+
+% -------------------------------
+% Select a theme
+% -------------------------------
+%\usetheme{Warsaw}
+%\usetheme{Rochester}
+%\usetheme{Madrid}
+%\usetheme{Pittsburgh}
+%\usetheme{Antibes}
+%\usetheme{Montpellier}
+%\usetheme{Berkeley}
+%\usetheme{PaloAlto}
+%\usetheme{Goettingen}
+%\usetheme{Marburg}
+%\usetheme{Hannover}
+\usetheme{Berlin}
+%\usetheme{Ilmenau}
+%\usetheme{Dresden}
+%\usetheme{Darmstadt}
+%\usetheme{Frankfurt}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Copenhagen}
+%\usetheme{Malmoe}
+
+% -------------------------------
+% Select a color theme
+% -------------------------------
+%\usecolortheme{seagull}
+%\usecolortheme{crane}
+%\usecolortheme{default}
+\usecolortheme[rgb={0.0902,0.404,0.659}]{structure} % Custom blue color
+
+% -------------------------------
+ % Select a font theme
+% -------------------------------
+\usefonttheme{structurebold}
+%\usefonttheme{structuresmallcapsserif}
+%\usefonttheme{structureitalicserif}
+%\usefonttheme{serif}
+\usefonttheme[onlymath]{serif}
+
+% -------------------------------
+ % Select a background color
+% -------------------------------
+%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=gray!30]
+%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=red!10!black!30]
+%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=green!20!black!30]
+%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=white]
+
+% -------------------------------
+% Select a color for math text
+% -------------------------------
+%\setbeamercolor{math text}{fg=red!80!black}
+% This command suppresses the navigation symbols at footline
+% comment the command below if you  want navigation symbols
+%\setbeamertemplate{navigation symbols}{}
+
+% -------------------------------
+% A macro to automatically generate section title slides
+% -------------------------------
+\AtBeginSection[]{
+\begin{frame}
+\vfill
+\centering
+%\begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+\begin{beamercolorbox}[sep=8pt,center,shadow=false,rounded=false]{title}
+%\usebeamerfont{title}\insertsectionhead\par%
+\usebeamerfont{title}\insertsection\par%
+\end{beamercolorbox}
+\vfill
+\end{frame}
+}
+
+%========================================================================
+% Preamble (Title Page)
+%========================================================================
+
+% Common title strings
+\title{Writing Papers Like a Grown-Up:\\ A Crash Course in \LaTeX}
+\author{Adam Rumpf\\{\footnotesize \href{mailto:arumpf@floridapoly.edu}{arumpf@floridapoly.edu}}}
+\institute{Florida Polytechnic University\\Department of Applied Mathematics}
+\date{February 26, 2024}
+
+% Custom footer
+\setbeamertemplate{footline}[text line]{\textcolor{gray}{\parbox{\linewidth}{\vspace*{-8pt}Adam Rumpf \hfill \url{adam-rumpf.github.io}}}}
+\setbeamertemplate{navigation symbols}{}
+
+%========================================================================
+% Slideshow
+%========================================================================
+
+\begin{document}
+
+%========================================================================
+\begin{frame}
+
+\titlepage
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Outline}
+
+\begin{enumerate}
+	\item Introduction to \LaTeX
+	\begin{itemize}
+		\item What it is
+		\item How it works
+		\item Why you should use it
+	\end{itemize}
+	\item A crash course in using \LaTeX
+	\begin{itemize}
+		\item Minimal working example
+		\item A tour of some features
+	\end{itemize}
+	\item Helpful resources
+\end{enumerate}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Preamble}
+
+\begin{itemize}
+	\item Like any programming language, using \LaTeX\ is a skill that takes practice
+	\item You cannot learn it from just watching one presentation
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Preamble}
+
+\begin{itemize}
+	\item All I can do is to show you its basic format and a few features
+	\item You will be able to play around with it on your own later
+	\item My main goal is to show you some of what is possible so that you can go out to research how to do it on your own later
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+%========================================================================
+%========================================================================
+\section{Introduction}
+
+%========================================================================
+\begin{frame}{What is \LaTeX?}
+
+\begin{itemize}
+	\item \LaTeX\ is a document typesetting system
+	\item It is used extensively in research and throughout academia since it offers a number of advantages over simpler alternatives like \textit{Microsoft Word}
+	\item This is particularly true in STEM fields since \LaTeX\ is excellent for formatting mathematical text
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{What is \LaTeX?}
+
+\begin{itemize}
+	\item Unlike a \textit{Word} document, in \LaTeX\ you do not directly edit text through a GUI
+	\item \LaTeX\ is a markup language (like HTML)
+	\item Everything you type is included in a plain text file (with the \texttt{.tex} extension)
+	\item You include tags and other code to control formatting and layout and to produce special symbols
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{What is \LaTeX?}
+
+You can find today's example code at my \textit{LaTeX Examples} GitHub repo \href{https://github.com/adam-rumpf/latex-examples-sp24}{here}.
+
+\vfill
+
+\scriptsize
+
+HTML: \texttt{<p>You can find today's example code at my <i>LaTeX Examples</i> GitHub repo <a~href="https://github.com/adam-rumpf/latex-examples-sp24">here</a>.</p>}
+
+\quad
+
+\LaTeX: \texttt{You can find today's example code at my \textbackslash textit\{LaTeX Examples\} GitHub repo \textbackslash href\{https://github.com/adam-rumpf/latex-examples-sp24\}\{here\}.}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{What is \LaTeX?}
+
+\begin{figure}
+	\begin{minipage}{0.45\textwidth}
+		You type \TeX\ code like this:
+		
+		\quad
+		
+		{\tt \tiny
+		According to \textbackslash textit\{Newton's Law of Cooling\},
+		
+		\quad
+		
+		\textbackslash begin\{align\}
+		
+		\qquad \textbackslash frac\{du\}\{dt\} = k (A - u)
+		
+		\textbackslash end\{align\}
+		
+		for \$k > 0\$, the rate of temperature increase is proportional to the temperature difference.
+		}
+	\end{minipage}
+	\qquad
+	\begin{minipage}{0.45\textwidth}
+		The \LaTeX\ compiler then produces something like this:
+		
+		\quad
+		
+		{\tiny
+		According to \textit{Newton's Law of Cooling},
+		\begin{align}
+			\frac{du}{dt} = k (A - u)
+		\end{align}
+		for $k > 0$, the rate of temperature increase is proportional to the temperature difference.
+		}
+	\end{minipage}
+\end{figure}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{What is \LaTeX?}
+
+\begin{itemize}
+	\item You can download a \LaTeX\ for yourself, but using it requires a couple of different components:
+	\begin{itemize}
+		\item A package manager (e.g.~MiKTeX or TeX Live) to download, update, and access the packages that extend basic \LaTeX\ to do all the fancy things you want
+		\item An IDE/compiler (e.g.~TeXworks) to compile \TeX\ code into the final document (usually a PDF)
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{What is \LaTeX?}
+
+\begin{itemize}
+	\item As an easier alternative, most students prefer to begin by using \href{https://www.overleaf.com/}{\textit{Overleaf.com}}
+	\item It is a free browser-based \LaTeX\ distribution that also offers limited collaboration
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Why is \LaTeX?}
+
+\begin{itemize}
+	\item \LaTeX\ is the standard typesetting language used in academia and for technical writing
+	\item Many journals and online repositories require submissions in the form of \TeX\ files
+	\item There are several reasons for this
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Why is \LaTeX?}
+
+\begin{itemize}
+	\item For one, the style of the entire document (margins, spacing, text size, font, layout, numbering systems,~etc.) is controlled by the commands at the beginning of the \TeX\ file, called the \textit{preamble}
+	
+	\quad
+	
+	{\tt \textbackslash pdfoutput=1
+	
+	\textbackslash documentclass[11pt]\{article\}
+	
+	\textbackslash usepackage[margin=1.0in]\{geometry\}
+	
+	\textbackslash usepackage[numbers,sort\&compress]\{natbib\}}
+	
+	\quad
+	
+	\item Changing a bit of code in the preamble can instantly change the entire document
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Why is \LaTeX?}
+
+\begin{itemize}
+	\item This is useful for collecting submissions from many authors and putting them all into a standard format (like articles in a journal)
+	\item It's also useful for copying all or part of a paper into different distributions (articles, posters, books,~etc.)
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Why is \LaTeX?}
+
+\begin{itemize}
+	\item In case you couldn't tell, this slideshow was made in \LaTeX
+	\item There is a document class called \textit{Beamer} for creating slideshows
+	\item Because it's still all \LaTeX, formulas and things can be copied directly from papers
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Why is \LaTeX?}
+
+\begin{itemize}
+	\item For two, \LaTeX\ makes many common tasks in technical writing far easier than they would be in \textit{Word}
+	\item Some examples include:
+	\begin{itemize}
+		\item Typesetting mathematical text, either inline or as a long system of aligned equations
+		\item Automatically updating reference numbers (to sections, equations, figures, tables, references,~etc.) when their placement in the document changes
+		\item Automatically generating citations (via \textsc{Bib}\TeX)
+		\item Directly importing and displaying computer code (via \href{https://ctan.org/pkg/listings}{Listings})
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Why is \LaTeX?}
+
+\begin{itemize}
+	\item The \LaTeX\ commands for mathematical typesetting are very commonly used in other pieces of software (e.g.~MATLAB)
+	\item e.g. $$\int_a^b f(x) \, dx := \lim_{n \to \infty} \sum_{i=1}^n f(x_i^*) \, \Delta x$$
+\end{itemize}
+
+\scriptsize
+
+\texttt{\textbackslash int\_a\^{}b f(x) dx := \textbackslash lim\_\{n \textbackslash to \textbackslash infty\} \textbackslash sum\_\{i=1\}\^{}n f(x\_i\^{}*) \textbackslash Delta x}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Why is \LaTeX?}
+
+\begin{itemize}
+	\item For three, technical documents drafted in \LaTeX\ just look nicer and more professional
+	\item Drafting assignments using \LaTeX\ will produce work that you can be proud of
+	\item It will also impress your instructor and grader
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+%========================================================================
+%========================================================================
+\section{Crash Course}
+
+%========================================================================
+\begin{frame}{Minimal Working Example}
+
+\begin{itemize}
+	\item We will start by creating a minimal working example of a \TeX\ document that can be compiled into a PDF
+	\item We will see some important formatting options and structures
+	\item Then we will jump into a complete document for a broader feature tour
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Minimal Working Example}
+
+Tasks:
+\begin{enumerate}
+	\item Create a PDF with text
+	\item Adjust the margins to be 1"
+	\item Add a title, author, and date
+	\item Add section numbers and references
+	\item Add some equations and references
+\end{enumerate}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Some Basic Lessons}
+
+\begin{itemize}
+	\item Every document must begin with a \textit{Preamble} that defines things like:
+	\begin{itemize}
+		\item Document class (e.g.~article)
+		\item Packages to import (with options)
+		\item Formatting options, defining macros, etc.
+	\end{itemize}
+	\item The main body goes within a \textit{document} environment, between {\tt \textbackslash begin\{document\}} and {\tt \textbackslash end\{document\}}
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Some Basic Lessons}
+
+\begin{itemize}
+	\item Inline math text goes between dollar signs {\tt \$\textbackslash frac\{d\}\{dx\} x\^{}2 = 2x\$}
+	\item Full-sized math text goes between two dollar signs {\tt \$\$\textbackslash frac\{d\}\{dx\} x\^{}2 = 2x\$\$} or within an \textit{align} environment
+	\begin{align*}
+		\frac{d}{dx} x^2 &= 2x \\
+		a^2 + b^2 &= c^2
+	\end{align*}
+	\item Lines can be commented out using the percent sign \texttt{\%}
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Some Basic Lessons}
+
+\begin{itemize}
+	\item Any numbered item (section, subsection, equation, figure, table,~etc.) can be given a label with {\tt \textbackslash label\{mylabel\}}
+	\item Its number can then be referenced elsewhere with {\tt \textbackslash ref\{mylabel\}}
+	\item A star~(\texttt{*}) can be included in most of these environment names to suppress numbering
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{A Complete Document}
+
+\begin{itemize}
+	\item Next we'll take a look at a complete document to show off a variety of common technical writing features
+	\item This is a set of supplementary lecture notes I posted for my Optimization Theory class earlier this semester
+	\item You can find the source code on the GitHub repo
+	
+	\url{https://github.com/adam-rumpf/latex-examples-sp24}
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Macros}
+
+\begin{itemize}
+	\item You can define your own macros in the preamble with {\tt \textbackslash newcommand\{\textbackslash commandname\}\{output\}}
+	\item This can be useful to make shortcuts for common pieces of notation
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{\textit{Text} \textbf{Formatting}}
+
+\begin{itemize}
+	\item \textit{Italic:} {\tt \textbackslash textit\{my text\}}
+	\item \textbf{Boldface:} {\tt \textbackslash textbf\{my text\}}
+	\item \underline{Underlined:} {\tt \textbackslash underline\{my text\}}
+	\item \textsc{Small Caps:} {\tt \textbackslash textsc\{my text\}}
+	\item \textrm{Roman (Serif):} {\tt \textbackslash textrm\{my text\}}
+	\item \textsf{Sans Serif:} {\tt \textbackslash textsf\{my text\}}
+	\item \texttt{Typewritten:} {\tt \textbackslash texttt\{my text\}}
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Systems of Equations}
+
+\begin{itemize}
+	\item Systems of equations can be typeset using the \texttt{align} (for single column) or \texttt{alignat} (for multiple columns) environments
+	\item Ampersands~({\tt \&}) within each line will be aligned with each other, which can be used to align equals signs~({\tt =}) in systems of equations
+	\item The newline character is a double backslash~({\tt \textbackslash \textbackslash})
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Tables and Figures}
+
+\begin{itemize}
+	\item Tables and figures can be inserted using a similar format
+	\item They are both types of \textit{floats}, meaning that (unless specified) \LaTeX\ will attempt to place them wherever they disrupt the text the least (rather than where they actually appear in the source text)
+	\item Both can be given captions and numbers, and can be referenced
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Tables and Figures}
+
+\begin{itemize}
+	\item Tables must be defined in the source text using the \texttt{tabular} environment, which specifies the number and alignment of the columns
+	\item Figures are loaded from file references
+	\item It is common to include a \texttt{figures/} folder in the project directory to contain all graphics
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Theorems and Proofs}
+
+\begin{itemize}
+	\item Packages are available for defining and using \texttt{theorem} and \texttt{proof} environments
+	\item Theorems (and lemmas, corollaries, observations,~etc.) are automatically numbered and can be referenced
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{References}
+
+\begin{itemize}
+	\item Quick references and other side notes can be included with the {\tt \textbackslash footnote} command
+	\item However most citations are handled using a bibliography file and the {\tt \textbackslash cite} command
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{\textsc{Bib}\TeX}
+
+\begin{itemize}
+	\item \textsc{Bib}\TeX\ is a bibliography file format recognized by \LaTeX
+	\item You can include a \texttt{.bib} file containing citation information for all books, articles, etc.~that you wish to cite in your paper
+	\item Most online journal articles include links to automatically export the citation info in \textsc{Bib}\TeX\ format
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{\textsc{Bib}\TeX}
+
+\begin{itemize}
+	\item You do not need to format the bibliography entries yourself; you simply fill in tags with relevant info (author names, article title, journal, date,~etc.)
+	\item Within a \TeX\ document you can then import the \texttt{.bib} file and choose a citation format (IEEE, MLA, APA,~etc.)
+	\item Your paper's bibliography will then automatically populate with all works cited by the \texttt{\textbackslash cite} command within your paper
+	\item All inline references will update if the bibliography changes
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{References}
+
+{\tt \small
+@article\{armijo1966,\\
+author=\{Larry Armijo\},\\
+title=\{Minimization of functions having \{L\}ipschitz continuous first partial derivatives\},\\
+journal=\{Pacific Journal of Mathematics\},\\
+year=\{1966\},\\
+volume=\{16\},\\
+number=\{1\},\\
+pages=\{1--3\},\\
+doi=\{10.2140/pjm.1966.16.1\},\\
+\}
+}
+
+\vfill
+
+L.~Armijo. \textit{Minimization of functions having Lipschitz continuous first partial derivatives}. Pacific Journal of Mathematics, 16(1):1--3, 1966. \texttt{doi:\href{https://doi.org/10.2140/pjm.1966.16.1}{10.2140/pjm.1966.16.1}}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Bullets and Numbered Lists}
+
+\begin{itemize}
+	\item Bullet-point lists are created with the \texttt{itemize} environment
+	\item This is one of those
+	\begin{itemize}
+		\item It can also include sub-lists
+		\item This is one of those
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Bullets and Numbered Lists}
+
+\begin{enumerate}
+	\item Numbered lists use the \texttt{enumerate} environment instead
+	\item This is one of those
+	\begin{enumerate}[a]
+		\item It can also include sub-lists
+		\item This is one of those
+	\end{enumerate}
+\end{enumerate}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{!`D\'i\"a\c{c}r\^it\`ic\~a\l{} M\aa \u{r}k\v{s}!}
+
+\begin{itemize}
+	\item \texttt{Paul Erd\textbackslash H\{o\}s used L'H\textbackslash\^{}opital's Rule to prove H\textbackslash"older's Inequality. He celebrated with 20~\textbackslash AA\$\^{}3\$ of cura\textbackslash c\{c\}ao.}
+	\item Paul Erd\H{o}s used L'H\^opital's Rule to prove H\"older's Inequality. He celebrated with 20~\AA$^3$ of cura\c{c}ao.
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Modular Documents}
+
+\begin{itemize}
+	\item When you begin to write very large documents (like multi-section papers and books) it may be useful to separate your \TeX\ file into several smaller ones
+	\item Sub-files can be imported into a master file using the \texttt{\textbackslash input} command
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+%========================================================================
+%========================================================================
+\section{Helpful Resources}
+
+%========================================================================
+\begin{frame}{Finding Help}
+
+\begin{itemize}
+	\item \LaTeX\ is quite widely used, and help is very readily available
+	\item You can usually find answers to questions very quickly by just searching for them
+	\item Overleaf, itself, has lots of useful guides
+	\item Also check out \url{https://tex.stackexchange.com/}
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Finding Help}
+
+\begin{itemize}
+	\item Sometimes you might need to read the documentation for a package you're using, or to search for a particular package
+	\item All the packages that are automatically downloaded by Overleaf (or MiKTeX or TeX Live) come from CTAN: The Comprehensive \TeX\ Archive Network (\url{ctan.org})
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{The Not So Short Introduction}
+
+\begin{itemize}
+	\item \textit{The Not So Short Introduction to \LaTeX} is an extremely helpful comprehensive guide that I use often
+	\item Try skimming through it to see brief rundowns of basic structures
+	\item I especially recommend the \textit{List of Mathematical Symbols} section
+	\item \url{https://tug.ctan.org/info/lshort/english/lshort.pdf}
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Detexify}
+
+\begin{itemize}
+	\item \textit{Detexify} is a great online and mobile tool for finding commands for symbols you might not remember
+	\item Sketch a symbol by hand, and Detexify will use machine learning to guess what symbol you're drawing
+	\item It provides commands and their necessary packages
+	\item \url{https://detexify.kirelabs.org/classify.html}
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+%========================================================================
+%========================================================================
+\section{Conclusion}
+
+%========================================================================
+\begin{frame}{90\% Perspiration}
+
+\begin{itemize}
+	\item Today's crash course could only ever be a brief feature tour
+	\item Now that you've seen some things that \LaTeX\ can do, you can go out to try it yourself and to look up help if you get stuck
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{90\% Perspiration}
+
+\begin{itemize}
+	\item Learning \LaTeX\ is hard work, but it's worth it for technical professionals
+	\item The best way is to simply dedicate yourself to using it regularly
+	\item It will feel slow at first, but it gets easier with time and experience
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{90\% Perspiration}
+
+\begin{itemize}
+	\item I learned it by deciding to draft all of my homework and notes using \LaTeX\ upon entering grad school
+	\item At first everything took way longer than writing things by hand or with \textit{Word}
+	\item Now I can do most things faster in \LaTeX\ than I can with anything else
+\end{itemize}
+
+\end{frame}
+
+%========================================================================
+\begin{frame}{Thank you!}
+
+\centering
+
+\begin{figure}
+	\includegraphics[height=0.3\textheight]{figures/broken_konigsberg_circle.png}
+\end{figure}
+
+\url{adam-rumpf.github.io}
+
+\end{frame}
+
+\end{document}
